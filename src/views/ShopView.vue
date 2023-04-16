@@ -7,3 +7,11 @@ import TheShop from '../components/shop/TheShop.vue'
     <TheShop />
   </main>
 </template>
+
+<style scoped>
+* {
+  display: flex;
+  justify-content: center;
+  width: 85%;
+}
+</style>
