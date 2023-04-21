@@ -1,12 +1,26 @@
-<script setup lang="ts">
+<script lang="ts">
+import { defineComponent } from 'vue'
+import { useItemsCart } from '@/stores'
 import ShopItem from './ShopItem.vue'
+
+export default defineComponent({
+
+  components: {
+    ShopItem,
+  },
+  created() {
+    useItemsCart().loadItemsFromFirebase()
+  },
+  computed: {
+    items() {
+      return useItemsCart().items
+    },
+  },
+})
 </script>
 <template>
   <div id="container">
-    <ShopItem />
-    <ShopItem />
-    <ShopItem />
-    <ShopItem />
+    <ShopItem v-for="(item, index) in items" :key="index" :id="item.id" :name="item.name" :price="item.price" />
   </div>
 </template>
 

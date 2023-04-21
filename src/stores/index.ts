@@ -1,12 +1,30 @@
 import { defineStore } from 'pinia'
-import { computed, ref } from 'vue'
+import { firestore } from '../main'
 
-export const useCounterStore = defineStore('index', () => {
-  const count = ref(0)
-  const doubleCount = computed(() => count.value * 2)
-  function increment() {
-    count.value++
+export const useItemsCart = defineStore('items', {
+  state: () => ({
+    items: [] as ItemInfo[],
+    cart: [] as ItemInfo[]
+  }),
+  getters: {
+    cartCount: (state) => state.cart.length
+  },
+  actions: {
+    addToCart(item: ItemInfo) {
+      this.cart.push(item)
+    },
+    async loadItemsFromFirebase() {
+      const itemsRef = firestore.collection('items')
+      const snapshot = await itemsRef.get()
+      snapshot.forEach((doc) => {
+        const item = doc.data() as ItemInfo
+        this.items.push(item)
+      })
+    }
   }
-
-  return { count, doubleCount, increment }
 })
+interface ItemInfo {
+  id: string
+  name: string
+  price: string
+}
