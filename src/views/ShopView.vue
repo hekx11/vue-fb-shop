@@ -12,6 +12,5 @@ import TheShop from '../components/shop/TheShop.vue'
 * {
   display: flex;
   justify-content: center;
-  width: 85%;
 }
 </style>
