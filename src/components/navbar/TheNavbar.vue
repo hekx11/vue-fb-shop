@@ -3,7 +3,6 @@ import SvgIcon from '@jamescoyle/vue-icon';
 import { mdiCartOutline } from '@mdi/js';
 
 export default {
-  name: "my-component",
   components: {
     SvgIcon
   },
@@ -22,7 +21,6 @@ export default {
       </router-link>
     </div>
     <h2><router-link to="/shop">Shop</router-link></h2>
-
     <router-link to="/cart"><svg-icon type="mdi" :path="path"></svg-icon></router-link>
   </nav>
 </template>
@@ -38,5 +36,9 @@ nav {
 img {
   width: 75px;
   height: 75px;
+}
+
+h2 {
+  Transform: translate(-50%, 0)
 }
 </style>
