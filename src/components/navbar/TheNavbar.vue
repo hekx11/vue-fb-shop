@@ -39,4 +39,8 @@ img {
   width: 75px;
   height: 75px;
 }
+
+h2 {
+  Transform: translate(-50%, 0)
+}
 </style>

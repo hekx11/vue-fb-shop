@@ -11,7 +11,7 @@ export default {
       required: true
     },
     price: {
-      type: String,
+      type: Number,
       required: true
     },
   },
@@ -33,8 +33,8 @@ export default {
     <div>
       <img src="https://picsum.photos/200" alt="item" />
       <div class="descr">
-        <h3>Item {{ name }}</h3>
-        <p>Price: {{ price }}</p>
+        <h3> {{ name }}</h3>
+        <p>${{ price }}</p>
       </div>
     </div>
     <button class="itemButton" @click="addToCart">Add to cart</button>
@@ -75,5 +75,11 @@ img {
   width: 100%;
   border: none;
   height: 2.5rem;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.itemButton:hover {
+  background-color: hsla(160, 100%, 37%, 0.5);
 }
 </style>

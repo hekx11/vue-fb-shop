@@ -4,12 +4,8 @@ import { useItemsCart } from '@/stores'
 import ShopItem from './ShopItem.vue'
 
 export default defineComponent({
-
   components: {
     ShopItem,
-  },
-  created() {
-    useItemsCart().loadItemsFromFirebase()
   },
   computed: {
     items() {

@@ -14,17 +14,21 @@ export const useItemsCart = defineStore('items', {
       this.cart.push(item)
     },
     async loadItemsFromFirebase() {
-      const itemsRef = firestore.collection('items')
-      const snapshot = await itemsRef.get()
-      snapshot.forEach((doc) => {
-        const item = doc.data() as ItemInfo
-        this.items.push(item)
-      })
+      try {
+        const itemsRef = firestore.collection('items')
+        const snapshot = await itemsRef.get()
+        snapshot.forEach((doc) => {
+          const item = doc.data() as ItemInfo
+          this.items.push(item)
+        })
+      } catch (error) {
+        console.log('Error getting documents', error)
+      }
     }
   }
 })
-interface ItemInfo {
+export interface ItemInfo {
   id: string
   name: string
-  price: string
+  price: number
 }
