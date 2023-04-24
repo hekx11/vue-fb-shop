@@ -24,6 +24,10 @@ export const useItemsCart = defineStore('items', {
       } catch (error) {
         console.log('Error getting documents', error)
       }
+    },
+    deleteItemFromCart(item: ItemInfo) {
+      const index = this.cart.findIndex((i) => i.id === item.id)
+      this.cart.splice(index, 1)
     }
   }
 })

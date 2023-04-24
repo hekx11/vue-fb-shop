@@ -12,6 +12,7 @@ export default defineComponent({
       return useItemsCart().cart
     },
   },
+
 })
 </script>
 <template>

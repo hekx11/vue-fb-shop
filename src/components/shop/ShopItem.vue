@@ -4,15 +4,18 @@ export default {
   props: {
     id: {
       type: String,
-      required: true
+      required: true,
+      default: ""
     },
     name: {
       type: String,
-      required: true
+      required: true,
+      default: ""
     },
     price: {
       type: Number,
-      required: true
+      required: true,
+      default: 0
     },
   },
   methods: {
@@ -56,6 +59,10 @@ export default {
 
 .item:hover {
   border-color: rgb(255, 255, 255);
+}
+
+h3 {
+  color: rgb(202, 202, 202);
 }
 
 img {
