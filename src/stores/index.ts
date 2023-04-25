@@ -26,7 +26,7 @@ export const useItemsCart = defineStore('items', {
       }
     },
     deleteItemFromCart(item: ItemInfo) {
-      const index = this.cart.findIndex((i) => i.id === item.id)
+      const index = this.cart.findIndex((i) => i.name === item.name)
       this.cart.splice(index, 1)
     }
   }
