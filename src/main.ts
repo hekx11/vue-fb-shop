@@ -1,7 +1,8 @@
+import { getAuth } from 'firebase/auth'
 import { createPinia } from 'pinia'
 import { createApp } from 'vue'
 
-import firebase from 'firebase/compat/app'
+import { initializeApp } from 'firebase/app'
 import 'firebase/compat/firestore'
 import App from './App.vue'
 import './assets/main.css'
@@ -19,9 +20,9 @@ const firebaseConfig = {
   messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
   appId: import.meta.env.VITE_FIREBASE_APP_ID
 }
-firebase.initializeApp(firebaseConfig)
-const firestore = firebase.firestore()
-export { firestore }
+const firebase = initializeApp(firebaseConfig)
+const auth = getAuth(firebase)
+export { auth, firebase }
 app.use(router)
 
 app.mount('#app')

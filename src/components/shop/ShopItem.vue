@@ -27,6 +27,7 @@ export default {
         price: this.price
       })
       console.log(store.cartCount)
+      console.log(store.items[0].id)
     }
   },
 }
