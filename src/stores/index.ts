@@ -2,10 +2,15 @@ import { collection, getDocs, getFirestore } from '@firebase/firestore'
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  signOut,
   type User
 } from 'firebase/auth'
 import { defineStore } from 'pinia'
 import { auth } from '../main'
+
+//TODO: rozdzielić store na dwa
+//TODO: dodawanie przedmiotów do koszyka w firestore
+//TODO: Logout
 
 export const useItemsCart = defineStore('items', {
   state: () => ({
@@ -60,6 +65,10 @@ export const useItemsCart = defineStore('items', {
       } else {
         throw new Error('login failed')
       }
+    },
+    async logout() {
+      await signOut(auth)
+      this.user.data
     }
   }
 })

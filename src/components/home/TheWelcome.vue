@@ -46,23 +46,20 @@ export default {
   <div id="container">
     <div v-if="!register" class="form-group">
       <form action="#" @submit.prevent="Login">
-        <input value type="email" placeholder="Enter your mail" v-model="emailLog" />
-        <input type="password" placeholder="Enter your password" v-model="passwordLog" />
+        <input required value type="email" placeholder="Enter your mail" v-model="emailLog" />
+        <input required type="password" placeholder="Enter your password" v-model="passwordLog" />
         <button type="submit" v-if="!register">Log in</button>
         <button v-if="!register" @click="register = !register">Register</button>
       </form>
     </div>
     <div v-if="register" class="form-group">
       <form action="#" @submit.prevent="Register">
-        <input type="text" placeholder="Enter your mail" v-model="email" />
-        <input type="text" placeholder="Enter your name" v-model="name" />
-        <input type="password" placeholder="Enter your password" v-model="password" />
+        <input required type="text" placeholder="Enter your mail" v-model="email" />
+        <input required type="text" placeholder="Enter your name" v-model="name" />
+        <input required type="password" placeholder="Enter your password" v-model="password" />
         <button type="submit" v-if="register">Register</button>
       </form>
     </div>
-
-
-
   </div>
 </template>
 <style scoped>
