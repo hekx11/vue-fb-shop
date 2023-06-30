@@ -16,7 +16,7 @@ export default {
     const Logout = async () => {
       try {
         await store.logout()
-        router.push('/')
+        router.push('/login')
       }
       catch (err: any) {
         error.value = err.message
