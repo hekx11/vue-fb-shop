@@ -66,7 +66,9 @@ export default {
 #container {
   display: flex;
   place-items: center;
+  place-content: center;
   width: 100%;
+  height: 100vh;
   flex-direction: column;
 }
 

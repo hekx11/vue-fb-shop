@@ -62,13 +62,15 @@ export const useItemsCart = defineStore('items', {
       const response = await signInWithEmailAndPassword(auth, email, password)
       if (response) {
         this.user.data = response.user
+        this.user.loggedIn = true
       } else {
         throw new Error('login failed')
       }
     },
     async logout() {
       await signOut(auth)
-      this.user.data
+      this.user.data = null
+      this.user.loggedIn = false
     }
   }
 })
